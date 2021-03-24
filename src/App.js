@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+import {useEffect, useState } from 'react';
+import axios from 'axios';
+
 import './App.css';
+import Header from './components/Header';
+import UserData from './components/UserData'
+
 
 function App() {
+
+  const [userInfo, setUserInfo] = useState();
+  const [userName, setUserName] = useState('gserpeloni');
+
+  const getUserByName = async () => {
+      let response  = await axios.get(`https://api.github.com/users/${userName}`)
+                        .then((res) => {return res} )
+                        .catch(err => console.error(err));
+
+      let data = JSON.parse(JSON.stringify(response)).data
+      setUserInfo(data); 
+}
+
+
+ useEffect(() => {
+   getUserByName();
+   console.log('userinfo:',{userInfo});
+ },[userName]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      
+
+      <div className="bodyData">
+         <UserData />
+
+        <div className="RepoData">
+         <button onClick={() => setUserName('vuejs')}> 
+           Search
+         </button>
+        </div>
+
+      </div>
     </div>
   );
 }
