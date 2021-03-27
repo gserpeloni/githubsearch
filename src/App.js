@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import axios from 'axios';
-import {TextField, Button}  from '@material-ui/core'
+import {TextField, Button}  from '@material-ui/core';
 import './App.css';
 import Header from './components/Header';
 import UserData from './components/UserData'
@@ -52,7 +52,12 @@ function getNameField(){
 
 
       <div className="bodyData">
-         <UserData />
+         <UserData
+            name= {userInfo?.name}
+            imageUrl= {userInfo?.avatar_url}
+            description={userInfo?.bio}
+            
+         />
 
 
         <div className="RepoData">
