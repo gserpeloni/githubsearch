@@ -3,34 +3,48 @@ import axios from 'axios';
 import {TextField, Button}  from '@material-ui/core';
 import './App.css';
 import Header from './components/Header';
-import UserData from './components/UserData'
+import UserData from './components/UserData';
+import RepoData from './components/RepoData/index.js';
 
 
 function App() {
 
-  const [userInfo, setUserInfo] = useState();
-  const [userName, setUserName] = useState('');
+  const [userInfos, setUserInfos] = useState({});
+  const [userRepo, setUserRepo] = useState([{name:'Initial State'}]);
+  const [userName, setUserName] = useState('gserpeloni');
 
-  const getUserByName = async () => {
-      let response  = await axios.get(`https://api.github.com/users/${userName}`)
-                        .then((res) => {setUserInfo(res.data)} )
-                        .catch(err => console.error(err));
-    return;
+
+const getUserByName = async () => {
+  await axios.get(`https://api.github.com/users/${userName}`)
+             .then((res) => {setUserInfos(res.data)} )
+             .catch(err => console.error(err));
+}
+
+
+const getRepos = async () => {
+ let repos = await axios.get(`https://api.github.com/users/${userName}/repos`)
+ let data = repos.data
+ setUserRepo(data);
+ console.log(data);
+  
 }
 
 useEffect(() => {
   if(userName !== ''){
-    getUserByName()
+    getUserByName();
+    getRepos();
     console.log('Name:', userName);
   }else console.log('Insert an valid User !');
-},[userName, setUserName]);
+},[userName, setUserName, setUserRepo]);
 
 
 useEffect(() => {
-  if(userInfo !== undefined){
-    console.log({userInfo});
+  if(userInfos !== undefined){
+    console.log({userInfos});
+    console.log({userRepo});
   }else console.log('Nothing here!');
-}, [userInfo]);
+}, [userInfos]);
+
 
 
 function getNameField(){
@@ -43,8 +57,8 @@ function getNameField(){
     <div className="App">
       <Header />
       
-    <div>
-      <TextField id="fieldName" label="Standard" />
+    <div className="divForm">
+      <TextField className="textField" id="fieldName" label="Username" />
       <Button variant="contained" color="primary" onClick={getNameField}>
         Search
       </Button>
@@ -53,18 +67,22 @@ function getNameField(){
 
       <div className="bodyData">
          <UserData
-            name= {userInfo?.name}
-            imageUrl= {userInfo?.avatar_url}
-            description={userInfo?.bio}
+            name= {userInfos?.name}
+            imageUrl= {userInfos?.avatar_url}
+            description={userInfos?.bio}
+            publicRepos={userInfos?.public_repos}
             
          />
 
+      
+         <RepoData
+            repos = {userRepo}
+         />
+          
 
-        <div className="RepoData">
-
-        </div>
 
       </div>
+
 
     </div>
   );
