@@ -1,4 +1,4 @@
-import './styles.css';
+import {UserImage} from './styles.js'
 
 export default function UserData(props){
 
@@ -7,13 +7,13 @@ export default function UserData(props){
 
     return(
         <div className="userData">
-           <div className="userImage"> 
+          <UserImage> 
               <img src={imageURL}  alt="Avatar" />
-           </div>
+           </UserImage>
            <div className="userDescription">
                <h3>Name: {props.name}</h3>
                <h3>Description: {props.description}</h3>
-               <h3>Public Repo: {props.publicRepos}</h3>
+               <h3>Public Repo: {props?.publicRepos}</h3>
                <h3></h3>
            </div>
         </div>

@@ -1,12 +1,12 @@
 import React from 'react';
-import './styles.css';
+import {HeaderDiv} from './styles.js';
 
 export default function Header(){
 
     return( 
-        <div className="HeaderDiv">
+        <HeaderDiv>
             <h1> GITHUB - SEARCH </h1>
-        </div>
+        </HeaderDiv>
     );
 
 }

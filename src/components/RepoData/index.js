@@ -1,6 +1,5 @@
 import { useState } from "react";
-import './styles.css';
-
+import {RepoItens} from './styles.js'
 
 export default function RepoData(props){
     return(
@@ -8,13 +7,13 @@ export default function RepoData(props){
             {
              props.repos.map((elem, index)=>{
                  return(
-                    <div className="repoItem">
+                    <RepoItens>
                         <div className="divColor">{index+1}</div>
                         <div className="divRepoInfos"> 
                             <h5><a href={`${elem.url}` } >{elem.name} </a></h5>
                             <h5>{elem.description}</h5>
                         </div>
-                    </div>
+                    </RepoItens>
                 );
              })
 
