@@ -17,6 +17,7 @@ export const UserDescription = styled.div`
     text-align: left;
     padding-left: 20px;
     margin-top:0;
+    
 
     h1{
         text-align:center;

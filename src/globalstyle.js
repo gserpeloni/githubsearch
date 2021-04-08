@@ -16,6 +16,7 @@ export const HeaderForms = styled.div`
   justify-content: center;
   margin-bottom: 1rem;
   z-index: 1;
+  
 
  .textField{
   margin-right: 5rem;

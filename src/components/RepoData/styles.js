@@ -26,6 +26,7 @@ export const RepoItens = styled.div`
         font-size: 2.0vh;
         text-align: left;
 
+
         a{
             color: white;
             text-decoration: none;       

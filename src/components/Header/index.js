@@ -5,7 +5,9 @@ export default function Header(){
 
     return( 
         <HeaderDiv>
+           
            <div>GITHUB - SEARCH</div>
+
         </HeaderDiv>
     );
 
