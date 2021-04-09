@@ -9,3 +9,16 @@ export const UserImage = styled.div`
        margin-top: 2rem;
    }
 `;
+
+
+export const UserDescription = styled.div`
+    color: gold;
+    font-size: 1.5vh;
+    text-align: left;
+    padding-left: 20px;
+    margin-top:0;
+
+    h1{
+        text-align:center;
+    }
+`;

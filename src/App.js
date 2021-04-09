@@ -1,10 +1,10 @@
 import React, {useEffect, useState } from 'react';
 import axios from 'axios';
 import {TextField, Button}  from '@material-ui/core';
-import './App.css';
 import Header from './components/Header';
 import UserData from './components/UserData';
 import RepoData from './components/RepoData/index.js';
+import {BodyData, HeaderForms, DivApp} from './globalstyle';
 
 
 function App() {
@@ -54,37 +54,29 @@ function getNameField(){
 
 
   return (
-    <div className="App">
+    <DivApp>
       <Header />
       
-    <div className="divForm">
-      <TextField className="textField" id="fieldName" label="Username" />
-      <Button variant="contained" color="primary" onClick={getNameField}>
-        Search
-      </Button>
-    </div>
+      <HeaderForms>
+        <TextField className="textField" id="fieldName" label="Username" />
+        <Button variant="contained" color="primary" onClick={getNameField}>
+          Search
+        </Button>
+      </HeaderForms>
 
 
-      <div className="bodyData">
+      <BodyData>
          <UserData
             name= {userInfos?.name}
             imageUrl= {userInfos?.avatar_url}
             description={userInfos?.bio}
-            publicRepos={userInfos?.public_repos}
-            
+            publicRepos={userInfos?.public_repos}    
          />
 
-      
-         <RepoData
-            repos = {userRepo}
-         />
-          
+         <RepoData repos = {userRepo} />
+      </BodyData>
 
-
-      </div>
-
-
-    </div>
+    </DivApp>
   );
 }
 
