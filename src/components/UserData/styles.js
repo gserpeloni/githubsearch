@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const UserImage = styled.div`
 
    img{
-       width: 20rem;
-       height: 20rem;
-       border-radius: 10rem;
+       width: 90%;
+       height: 90%;
+       border-radius: 50%;
        margin-top: 2rem;
    }
 `;
@@ -13,7 +13,7 @@ export const UserImage = styled.div`
 
 export const UserDescription = styled.div`
     color: gold;
-    font-size: 1.5vh;
+    font-size: 0.9vw;
     text-align: left;
     padding-left: 20px;
     margin-top:0;
