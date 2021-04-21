@@ -4,10 +4,8 @@ import {HeaderDiv} from './styles.js';
 export default function Header(){
 
     return( 
-        <HeaderDiv>
-           
+        <HeaderDiv> 
            <div>GITHUB - SEARCH</div>
-
         </HeaderDiv>
     );
 
