@@ -1,5 +1,6 @@
 {
   "name": "gitsearch",
+  "homepage": "https://gserpeloni.github.io/githubsearch/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
