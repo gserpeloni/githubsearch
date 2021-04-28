@@ -10,7 +10,7 @@ export default function RepoData(props){
                     <RepoItens>
                         <div className="divColor">{index+1}</div>
                         <div className="divRepoInfos"> 
-                            <h5><a href={`${elem.url}` } >{elem.name} </a></h5>
+                            <h5><a href={`${elem.svn_url}`} target="_blank" >{elem.name} </a></h5>
                             <h5>{elem.description}</h5>
                         </div>
                     </RepoItens>
